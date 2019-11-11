@@ -20,11 +20,16 @@ class Styles : Stylesheet() {
 
         label {
             fontWeight = FontWeight.BOLD
+            fontFamily = "Comic Sans MS"
         }
 
         startButton {
-           and(hover) {
+            fontWeight = FontWeight.BOLD
+            fontFamily = "Comic Sans MS"
+            fontSize = 15.px
+            and(hover) {
                 backgroundColor += Color.RED
+                textFill = Color.WHITE
             }
             prefWidth = 500.px
         }

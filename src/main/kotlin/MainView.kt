@@ -1,4 +1,3 @@
-import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.geometry.Pos
 import tornadofx.*
@@ -31,5 +30,22 @@ class MainView : View() {
             }
         }
 
-            hbox(alignment = Pos.CENTER) { button("Start Download") { addClass(Styles.startButton); action { if ((titleId.value) != null && (titleId.value) != "") information(titleId.value) } } } }
+        hbox(alignment = Pos.CENTER) {
+            button("Start Download") {
+                addClass(Styles.startButton)
+                action {
+                    if (checkNotnull(titleId.value, startNumber.value, endNumber.value) == true) {
+                        information(titleId.value + startNumber.value + endNumber.value)
+                        DownloadManager( titleId.value.toInt(), startNumber.value.toInt(), endNumber.value.toInt())
+                    }
+                }
+            }
+        }
     }
+
+    fun checkNotnull(titleId: String?, startNumber: String?, endNumber: String?): Boolean {
+        if((titleId != null && startNumber != null && endNumber != null) && (titleId != "" && startNumber != "" && endNumber != "")) return true
+
+        return false
+    }
+}
