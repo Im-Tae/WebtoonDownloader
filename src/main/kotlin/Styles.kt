@@ -1,3 +1,4 @@
+import javafx.scene.effect.DropShadow
 import javafx.scene.paint.Color
 import javafx.scene.text.FontWeight
 import tornadofx.Stylesheet
@@ -10,6 +11,7 @@ class Styles : Stylesheet() {
     companion object {
         val title by cssclass()
         val startButton by cssclass()
+        val targetButton by cssclass()
     }
 
     init {
@@ -28,10 +30,21 @@ class Styles : Stylesheet() {
             fontFamily = "Comic Sans MS"
             fontSize = 15.px
             and(hover) {
+                effect = DropShadow(10.0, Color.BLACK)
                 backgroundColor += Color.RED
                 textFill = Color.WHITE
             }
-            prefWidth = 500.px
+            prefWidth = 300.px
+        }
+
+        targetButton {
+            fontWeight = FontWeight.BOLD
+            fontFamily = "Comic Sans MS"
+            fontSize = 15.px
+            prefWidth = 180.px
+            and(hover) {
+                effect = DropShadow(10.0, Color.BLACK)
+            }
         }
 
         textField {

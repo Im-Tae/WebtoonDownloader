@@ -5,7 +5,7 @@ import tornadofx.reloadStylesheetsOnFocus
 
 class Main : App(MainView::class, Styles::class) {
 
-    init { reloadStylesheetsOnFocus() }
+    init { reloadStylesheetsOnFocus()  }
 
     override fun start(stage: Stage) {
         stage.width = 500.0
@@ -13,7 +13,7 @@ class Main : App(MainView::class, Styles::class) {
         stage.isResizable = false
         super.start(stage)
     }
-
 }
+
 
 fun main(args: Array<String>) = launch<Main>(args)
