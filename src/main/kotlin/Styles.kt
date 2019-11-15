@@ -22,7 +22,6 @@ class Styles : Stylesheet() {
 
         label {
             fontWeight = FontWeight.BOLD
-            fontFamily = "Comic Sans MS"
         }
 
         startButton {
@@ -31,8 +30,8 @@ class Styles : Stylesheet() {
             fontSize = 15.px
             and(hover) {
                 effect = DropShadow(10.0, Color.BLACK)
-                backgroundColor += Color.RED
-                textFill = Color.WHITE
+                //backgroundColor += Color.RED
+                //textFill = Color.WHITE
             }
             prefWidth = 300.px
         }
@@ -52,6 +51,11 @@ class Styles : Stylesheet() {
             borderWidth += box(3.px)
             //borderColor += box(Color.WHITE)
             //borderRadius += box(7.px)
+        }
+
+        progressBar {
+            prefWidth = 500.px
+            prefHeight = 30.px
         }
     }
 }

@@ -9,7 +9,7 @@ class Main : App(MainView::class, Styles::class) {
 
     override fun start(stage: Stage) {
         stage.width = 500.0
-        stage.height = 250.0
+        stage.height = 280.0
         stage.isResizable = false
         super.start(stage)
     }

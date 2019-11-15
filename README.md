@@ -18,3 +18,13 @@ Webtoon Download program for [Naver Webtoon]( https://comic.naver.com/ )
 ##   📃 Instruction 
 
 Coming soon
+
+
+
+##  🧷 Reference
+
+
+
+ ✔  [TornadoFX Guide]( https://edvin.gitbooks.io/tornadofx-guide/ )
+
+ ✔  [GMSGondr]( http://www.gmsgondr.net/lecture/1/23 )
