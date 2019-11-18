@@ -4,6 +4,12 @@
 
 Webtoon Download program for [Naver Webtoon]( https://comic.naver.com/ )
 
+이 프로그램에 문제가 생기면 itggood2420@gmail.com 으로 메일 보내주세요.
+
+
+
+
+
 ## 💻 Technology
 
 
@@ -15,9 +21,15 @@ Webtoon Download program for [Naver Webtoon]( https://comic.naver.com/ )
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/IntelliJ_IDEA_Logo.svg/1200px-IntelliJ_IDEA_Logo.svg.png" width="150" height="150"/>
 </p>
 
+
+
+
+
 ##   📃 Instruction 
 
 Coming soon
+
+
 
 
 
@@ -28,3 +40,10 @@ Coming soon
  ✔  [TornadoFX Guide]( https://edvin.gitbooks.io/tornadofx-guide/ )
 
  ✔  [GMSGondr]( http://www.gmsgondr.net/lecture/1/23 )
+
+
+
+
+
+## 📅 Later
+

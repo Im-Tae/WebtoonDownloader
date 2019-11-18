@@ -52,10 +52,5 @@ class Styles : Stylesheet() {
             //borderColor += box(Color.WHITE)
             //borderRadius += box(7.px)
         }
-
-        progressBar {
-            prefWidth = 500.px
-            prefHeight = 30.px
-        }
     }
 }

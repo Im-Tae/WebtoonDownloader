@@ -1,4 +1,5 @@
 import org.jsoup.Jsoup
+import tornadofx.runAsync
 import java.io.File
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
@@ -11,22 +12,23 @@ class DownloadManager( private var titleId: Int, private var startNumber: Int, p
     private var url:String? = null
 
      fun download() {
+
         for (i in startNumber..endNumber) {
             url = "http://comic.naver.com/webtoon/detail.nhn?titleId=$titleId&no=$i"
 
             val createFolder = File(dir, "$i" + "화")
-            if(!createFolder.exists())
-                createFolder.mkdir()
+
+            if(!createFolder.exists()) createFolder.mkdir()
 
             saveDir = dir + File.separator + i + "화"
             getImageSource(url!!, saveDir!!)
+
+            if (getImageSource(url!!, saveDir!!)) { println("${i}화 다운 완료!") }
         }
-
-
+         MainView.noticeMessage("downloadSuccess")
     }
-    companion object {
+        fun getImageSource(url: String, dir: String): Boolean {
 
-        fun getImageSource(url: String, dir: String) {
             try {
                 val doc = Jsoup.connect(url).get()
                 val imgs = doc.select(".wt_viewer > img")
@@ -34,17 +36,22 @@ class DownloadManager( private var titleId: Int, private var startNumber: Int, p
                 for (i in 0 until imgs.size) {
                     val src = imgs[i].attr("src")
 
-
-                    downloadImage(url, dir, src, i + 1)
+                    runAsync {
+                        downloadImage(url, dir, src, i + 1)
+                    }
 
                     System.out.println("현재 총 " + imgs.size + "개 중 " + (i + 1) + "개 다운로드 완료")
                 }
+                return true
             } catch (e: UnknownHostException) {
-                MainView.alertMessage(1)
+                MainView.noticeMessage("wifiError")
             }
+            return false
         }
 
+
         fun downloadImage(url: String, dir: String, src: String, page: Int) {
+
             try {
                 val idx = src.lastIndexOf(".")
                 val ext = src.substring(idx)
@@ -60,7 +67,7 @@ class DownloadManager( private var titleId: Int, private var startNumber: Int, p
                 val inputStream = connection.getInputStream()
 
                 val buffer = ByteArray(1024 * 1024)
-                var len = 0
+                var len: Int
                 while (true) {
                     len = inputStream.read(buffer)
                     if (len <= 0) {
@@ -77,8 +84,3 @@ class DownloadManager( private var titleId: Int, private var startNumber: Int, p
         }
 
     }
-
-
-
-
-}

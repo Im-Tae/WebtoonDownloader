@@ -1,13 +1,10 @@
-import javafx.application.Platform
 import javafx.beans.property.SimpleStringProperty
-import javafx.concurrent.Task
 import javafx.geometry.Pos
 import javafx.scene.control.Alert
 import javafx.scene.image.Image
 import javafx.stage.StageStyle
 import tornadofx.*
 import java.io.File
-import kotlin.concurrent.thread
 
 class MainView : View() {
 
@@ -21,55 +18,43 @@ class MainView : View() {
         title = " Webtoon Downloader"
         setStageIcon(Image("logo.png"))
 
-        hbox(alignment = Pos.CENTER) { label("Webtoon Downloader") { addClass(Styles.title) } }
-
-        fieldset {
-
-            field("Title Id ") {
-                textfield(titleId) {
-                    promptText = "Title Id를 입력해주세요."
-                }
-            }
-            field("Start Number") {
-                textfield(startNumber) {
-                    promptText = "Start Number를 입력해주세요."
-                }
-            }
-            field("End Number") {
-                textfield(endNumber) {
-                    promptText = "End Number를 입력해주세요."
-                }
-            }
-        }
-
         vbox {
 
-        hbox(alignment = Pos.CENTER) {
+            hbox(alignment = Pos.CENTER) { label("Webtoon Downloader") { addClass(Styles.title) } }
 
-            button("저장 경로") {
-                hboxConstraints { marginRight = 10.0 }
-                addClass(Styles.targetButton)
-                action { dir = chooseDirectory("저장할 경로를 선택해주세요.") }
-            }
+            fieldset {
 
-            button("다운로드") {
-                addClass(Styles.startButton)
-                action {
-                    if (checkNullAlertMessage(dir)) {
-                        DownloadManager( titleId.value.toInt(), startNumber.value.toInt(), endNumber.value.toInt(), dir.toString() ).download()
-
+                field("Title Id ") {
+                    textfield(titleId) {
+                        promptText = "Title Id를 입력해주세요."
+                    }
+                }
+                field("Start Number") {
+                    textfield(startNumber) {
+                        promptText = "Start Number를 입력해주세요."
+                    }
+                }
+                field("End Number") {
+                    textfield(endNumber) {
+                        promptText = "End Number를 입력해주세요."
                     }
                 }
             }
 
-        }
-            progressbar {
-                vboxConstraints { marginTop = 10.0 }
+            hbox(alignment = Pos.CENTER) {
 
-                thread {
-                    for (i in 1..100) {
-                        Platform.runLater { progress = i.toDouble() / 100.0 }
-                        Thread.sleep(100)
+                button("저장 경로") {
+                    hboxConstraints { marginRight = 10.0 }
+                    addClass(Styles.targetButton)
+                    action { dir = chooseDirectory("저장할 경로를 선택해주세요.") }
+                }
+
+                button("다운로드") {
+                    addClass(Styles.startButton)
+                    action {
+                        if (checkNullAlertMessage(dir) && startNumber.value.toInt() > 0) {
+                            DownloadManager( titleId.value.toInt(), startNumber.value.toInt(), endNumber.value.toInt(), dir.toString() ).download()
+                        }
                     }
                 }
             }
@@ -83,6 +68,7 @@ class MainView : View() {
     }
 
     fun checkNullAlertMessage(dir: File?): Boolean {
+
         var alert = Alert(Alert.AlertType.ERROR)
         alert.setTitle("경고")
         alert.setHeaderText(null)
@@ -103,15 +89,22 @@ class MainView : View() {
     }
 
     companion object {
-        fun alertMessage(check: Int) {
-            var alert = Alert(Alert.AlertType.ERROR)
-            alert.setTitle("경고")
-            alert.setHeaderText(null)
-            alert.initStyle(StageStyle.UTILITY)
+        fun noticeMessage(check: String) {
+
+            var errorAlert = Alert(Alert.AlertType.ERROR)
+            var informationAlert = Alert(Alert.AlertType.INFORMATION)
+
+            errorAlert.setHeaderText(null)
+            errorAlert.initStyle(StageStyle.UTILITY)
+
+            informationAlert.setHeaderText(null)
+            informationAlert.initStyle(StageStyle.UTILITY)
+
             when(check) {
-                1 -> alert.setContentText("와이파이 연결이 필요합니다.")
+                "wifiError" -> { errorAlert.setTitle("경고"); errorAlert.setContentText("와이파이 연결이 필요합니다.");  errorAlert.showAndWait() }
+                "downloadSuccess" -> { informationAlert.setTitle(""); informationAlert.setContentText("다운 완료!");  informationAlert.showAndWait() }
             }
-            alert.showAndWait()
+
         }
     }
 
