@@ -27,8 +27,15 @@ Webtoon Download program for [Naver Webtoon]( https://comic.naver.com/ )
 
 ##   📃 Instruction 
 
-Coming soon
+![Main Screen](https://github.com/Im-Tae/WebtoonDownloader/blob/master/design/main.png?raw=true)
 
+Title Id에 웹툰 Id를 입력해주세요.</br>
+Start Number에 다운받을 첫 번째 화를 입력해주세요.</br>
+End Number에 다운받을 마지막 화를 입력해주세요.</br>
+
+저장 경로( Ctrl + D )로 저장할 폴더를 선택해주세요.</br>
+마지막으로 다운로드( Enter )를 눌러 다운을 받으시면 됩니다.</br>
+(현재 다운 현황을 확인 할 수 없습니다. 추후에 수정할 예정입니다. 다운 완료라는 알림이 뜰 때까지 기다려 주시면 됩니다.)
 
 
 
@@ -47,3 +54,4 @@ Coming soon
 
 ## 📅 Later
 
+Progress Bar 추가
