@@ -54,6 +54,6 @@ End Number에 다운받을 마지막 화를 입력해주세요.</br>
 
 ## 📅 Later
 
-곧 Release 됩니다.
-Progress Bar 추가 예정
+곧 Release 됩니다.</br>
+Progress Bar 추가 예정</br>
 뷰어 추가 예정
