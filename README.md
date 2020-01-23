@@ -1,6 +1,6 @@
 #  📁 Webtoon Downloader
 
-[![Author](https://img.shields.io/badge/author-Im--Tae-red.svg)]( https://github.com/Im-Tae ) [![Language](https://img.shields.io/badge/language-Kotlin-green.svg)](  https://kotlinlang.org/  ) [![TornadoFX](https://img.shields.io/badge/gui-TornadoFX%201.7.19-green.svg)](https://travis-ci.org/edvin/tornadofx) [![Intellij IDEA](https://img.shields.io/badge/tools-Intellij%20IDEA-green.svg)]( https://www.jetbrains.com/idea/ ) [![MIT License](https://img.shields.io/badge/license-MIT%20License-blue.svg)]( https://opensource.org/licenses/MIT )
+[![Author](https://img.shields.io/badge/author-Im--Tae-red.svg)]( https://github.com/Im-Tae ) [![Language](https://img.shields.io/badge/language-Kotlin-green.svg)](  https://kotlinlang.org/  ) [![TornadoFX](https://img.shields.io/badge/gui-TornadoFX%201.7.19-green.svg)](https://travis-ci.org/edvin/tornadofx) [![Intellij IDEA](https://img.shields.io/badge/tools-Intellij%20IDEA-green.svg)]( https://www.jetbrains.com/idea/ ) [![MIT License](https://img.shields.io/badge/license-Apache%20License%202.0-blue)]( https://www.apache.org/licenses/LICENSE-2.0 )
 
 Webtoon Download program for [Naver Webtoon]( https://comic.naver.com/ )
 
@@ -56,4 +56,6 @@ End Number에 다운받을 마지막 화를 입력해주세요.</br>
 
 곧 Release 됩니다.</br>
 Progress Bar 추가 예정</br>
-뷰어 추가 예정
+뷰어 추가 예정</br>
+
+다른 사이트 추가 예정

@@ -15,12 +15,16 @@ class MainView : View() {
 
     override val root = form {
 
-        title = " Webtoon Downloader"
+        title = " Naver Webtoon Downloader"
         setStageIcon(Image("logo.png"))
 
         vbox {
 
-            hbox(alignment = Pos.CENTER) { label("Webtoon Downloader") { addClass(Styles.title) } }
+            hbox(alignment = Pos.CENTER) {
+
+                label("Naver"){ addClass(Styles.title2) }
+                label(" Webtoon Downloader") { addClass(Styles.title1) }
+            }
 
             fieldset {
 
@@ -47,6 +51,7 @@ class MainView : View() {
                     hboxConstraints { marginRight = 10.0 }
                     addClass(Styles.targetButton)
                     action { dir = chooseDirectory("저장할 경로를 선택해주세요.") }
+                    shortcut("Ctrl+D")
                 }
 
                 button("다운로드") {
@@ -56,6 +61,7 @@ class MainView : View() {
                             DownloadManager( titleId.value.toInt(), startNumber.value.toInt(), endNumber.value.toInt(), dir.toString() ).download()
                         }
                     }
+                    shortcut("Enter")
                 }
             }
         }

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: kotlin-stdlib-jdk7-1.3.50.jar kotlin-reflect-1.2.60.jar ko
+ tlin-stdlib-common-1.3.50.jar jsoup-1.12.1.jar kotlin-stdlib-jdk8-1.3
+ .50.jar javax.json-api-1.1.2.jar tornadofx-1.7.17.jar annotations-13.
+ 0.jar kotlin-stdlib-1.3.50.jar javax.json-1.1.2.jar
+Main-Class: MainKt
+

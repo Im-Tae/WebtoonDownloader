@@ -1,5 +1,7 @@
 import javafx.stage.Stage
 import tornadofx.App
+import tornadofx.FX
+import tornadofx.FX.Companion.primaryStage
 import tornadofx.launch
 import tornadofx.reloadStylesheetsOnFocus
 
@@ -12,6 +14,7 @@ class Main : App(MainView::class, Styles::class) {
         stage.height = 250.0
         stage.isResizable = false
         super.start(stage)
+        FX.registerApplication(this, primaryStage)
     }
 }
 
