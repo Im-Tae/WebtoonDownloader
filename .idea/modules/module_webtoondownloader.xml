@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_webtoondownloader" default="compile.module.webtoondownloader">
+  <dirname property="module.webtoondownloader.basedir" file="${ant.file.module_webtoondownloader}"/>
+  
+  <property name="module.jdk.home.webtoondownloader" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.webtoondownloader" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.webtoondownloader" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.webtoondownloader" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
+  
+  <property name="webtoondownloader.output.dir" value="${module.webtoondownloader.basedir}/../../classes/production/webtoondownloader"/>
+  <property name="webtoondownloader.testoutput.dir" value="${module.webtoondownloader.basedir}/../../classes/test/webtoondownloader"/>
+  
+  <path id="webtoondownloader.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="webtoondownloader.module.production.classpath">
+    <path refid="${module.jdk.classpath.webtoondownloader}"/>
+  </path>
+  
+  <path id="webtoondownloader.runtime.production.module.classpath">
+    <pathelement location="${webtoondownloader.output.dir}"/>
+  </path>
+  
+  <path id="webtoondownloader.module.classpath">
+    <path refid="${module.jdk.classpath.webtoondownloader}"/>
+    <pathelement location="${webtoondownloader.output.dir}"/>
+  </path>
+  
+  <path id="webtoondownloader.runtime.module.classpath">
+    <pathelement location="${webtoondownloader.testoutput.dir}"/>
+    <pathelement location="${webtoondownloader.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.webtoondownloader">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.webtoondownloader">
+    <patternset refid="excluded.from.module.webtoondownloader"/>
+  </patternset>
+  
+  
+  <target name="compile.module.webtoondownloader" depends="compile.module.webtoondownloader.production,compile.module.webtoondownloader.tests" description="Compile module webtoondownloader"/>
+  
+  <target name="compile.module.webtoondownloader.production" depends="register.custom.compilers" description="Compile module webtoondownloader; production classes"/>
+  
+  <target name="compile.module.webtoondownloader.tests" depends="register.custom.compilers,compile.module.webtoondownloader.production" description="compile module webtoondownloader; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.webtoondownloader" description="cleanup module">
+    <delete dir="${webtoondownloader.output.dir}"/>
+    <delete dir="${webtoondownloader.testoutput.dir}"/>
+  </target>
+</project>

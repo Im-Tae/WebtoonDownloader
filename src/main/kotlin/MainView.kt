@@ -8,9 +8,9 @@ import java.io.File
 
 class MainView : View() {
 
-    val titleId = SimpleStringProperty()
-    val startNumber = SimpleStringProperty()
-    val endNumber = SimpleStringProperty()
+    private val titleId = SimpleStringProperty()
+    private val startNumber = SimpleStringProperty()
+    private val endNumber = SimpleStringProperty()
     var dir: File? = null
 
     override val root = form {
@@ -67,26 +67,26 @@ class MainView : View() {
         }
     }
 
-    fun checkNull(titleId: String?, startNumber: String?, endNumber: String?): Boolean {
+    private fun checkNull(titleId: String?, startNumber: String?, endNumber: String?): Boolean {
         if((titleId != null && startNumber != null && endNumber != null) && (titleId != "" && startNumber != "" && endNumber != "")) return true
 
         return false
     }
 
-    fun checkNullAlertMessage(dir: File?): Boolean {
+    private fun checkNullAlertMessage(dir: File?): Boolean {
 
-        var alert = Alert(Alert.AlertType.ERROR)
-        alert.setTitle("경고")
-        alert.setHeaderText(null)
+        val alert = Alert(Alert.AlertType.ERROR)
+        alert.title = "경고"
+        alert.headerText = null
         alert.initStyle(StageStyle.UTILITY)
 
         if (!checkNull(titleId.value, startNumber.value, endNumber.value))  {
-            alert.setContentText("빈칸을 채워주세요.")
+            alert.contentText = "빈칸을 채워주세요."
             alert.showAndWait()
             return false
         } else {
             if (dir == null) {
-                alert.setContentText("경로를 선택해주세요.")
+                alert.contentText = "경로를 선택해주세요."
                 alert.showAndWait()
                 return false
             }
@@ -97,19 +97,18 @@ class MainView : View() {
     companion object {
         fun noticeMessage(check: String) {
 
-            var errorAlert = Alert(Alert.AlertType.ERROR)
-            var informationAlert = Alert(Alert.AlertType.INFORMATION)
+            val errorAlert = Alert(Alert.AlertType.ERROR)
+            val informationAlert = Alert(Alert.AlertType.INFORMATION)
 
-            errorAlert.setHeaderText(null)
+            errorAlert.headerText = null
             errorAlert.initStyle(StageStyle.UTILITY)
 
-            informationAlert.setHeaderText(null)
+            informationAlert.headerText = null
             informationAlert.initStyle(StageStyle.UTILITY)
 
             when(check) {
-                "wifiError" -> { errorAlert.setTitle("경고"); errorAlert.setContentText("와이파이 연결이 필요합니다.");  errorAlert.showAndWait() }
-                "downloadSuccess" -> { informationAlert.setTitle(""); informationAlert.setContentText("다운 완료!");  informationAlert.showAndWait() }
-            }
+                "wifiError" -> { errorAlert.title = "경고"; errorAlert.contentText = "와이파이 연결이 필요합니다.";  errorAlert.showAndWait() }
+                "downloadSuccess" -> { informationAlert.title = ""; informationAlert.contentText = "다운 완료!";  informationAlert.showAndWait() } }
 
         }
     }

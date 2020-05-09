@@ -27,60 +27,60 @@ class DownloadManager( private var titleId: Int, private var startNumber: Int, p
         }
          MainView.noticeMessage("downloadSuccess")
     }
-        fun getImageSource(url: String, dir: String): Boolean {
+    private fun getImageSource(url: String, dir: String): Boolean {
 
-            try {
-                val doc = Jsoup.connect(url).get()
-                val imgs = doc.select(".wt_viewer > img")
+        try {
+            val doc = Jsoup.connect(url).get()
+            val images = doc.select(".wt_viewer > img")
 
-                for (i in 0 until imgs.size) {
-                    val src = imgs[i].attr("src")
+            for (i in 0 until images.size) {
+                val src = images[i].attr("src")
 
-                    runAsync {
-                        downloadImage(url, dir, src, i + 1)
-                    }
-
-                    System.out.println("현재 총 " + imgs.size + "개 중 " + (i + 1) + "개 다운로드 완료")
+                runAsync {
+                    downloadImage(url, dir, src, i + 1)
                 }
-                return true
-            } catch (e: UnknownHostException) {
-                MainView.noticeMessage("wifiError")
+
+                println("현재 총 " + images.size + "개 중 " + (i + 1) + "개 다운로드 완료")
             }
-            return false
+            return true
+        } catch (e: UnknownHostException) {
+            MainView.noticeMessage("wifiError")
         }
-
-
-        fun downloadImage(url: String, dir: String, src: String, page: Int) {
-
-            try {
-                val idx = src.lastIndexOf(".")
-                val ext = src.substring(idx)
-
-                val saveFile = File(dir + File.separator + page + ext)
-                val fileOutputStream = FileOutputStream(saveFile)
-
-                val connection = URL(src).openConnection() as HttpURLConnection
-                connection.setConnectTimeout(40000)
-                connection.setRequestMethod("GET")
-                connection.setRequestProperty("Referer", url)
-                connection.setRequestProperty("User-Agent", "Mozilla/5.0")
-                val inputStream = connection.getInputStream()
-
-                val buffer = ByteArray(1024 * 1024)
-                var len: Int
-                while (true) {
-                    len = inputStream.read(buffer)
-                    if (len <= 0) {
-                        break
-                    }
-                    fileOutputStream.write(buffer, 0, len)
-                }
-                fileOutputStream.close()
-                inputStream.close()
-
-            } catch (e: Exception) {
-                println(page.toString() + "번 이미지 다운중 오류 발생")
-            }
-        }
-
+        return false
     }
+
+
+    private fun downloadImage(url: String, dir: String, src: String, page: Int) {
+
+        try {
+            val idx = src.lastIndexOf(".")
+            val ext = src.substring(idx)
+
+            val saveFile = File(dir + File.separator + page + ext)
+            val fileOutputStream = FileOutputStream(saveFile)
+
+            val connection = URL(src).openConnection() as HttpURLConnection
+            connection.connectTimeout = 40000
+            connection.requestMethod = "GET"
+            connection.setRequestProperty("Referer", url)
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0")
+            val inputStream = connection.inputStream
+
+            val buffer = ByteArray(1024 * 1024)
+            var len: Int
+            while (true) {
+                len = inputStream.read(buffer)
+                if (len <= 0) {
+                    break
+                }
+                fileOutputStream.write(buffer, 0, len)
+            }
+            fileOutputStream.close()
+            inputStream.close()
+
+        } catch (e: Exception) {
+            println(page.toString() + "번 이미지 다운중 오류 발생")
+        }
+    }
+
+}

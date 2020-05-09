@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_webtoondownloader.main" default="compile.module.webtoondownloader.main">
+  <dirname property="module.webtoondownloader.main.basedir" file="${ant.file.module_webtoondownloader.main}"/>
+  
+  <property name="module.jdk.home.webtoondownloader.main" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.webtoondownloader.main" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.webtoondownloader.main" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.webtoondownloader.main" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="webtoondownloader.main.output.dir" value="${module.webtoondownloader.main.basedir}/../../out/production/classes"/>
+  <property name="webtoondownloader.main.testoutput.dir" value="${module.webtoondownloader.main.basedir}/../../out/production/classes"/>
+  
+  <path id="webtoondownloader.main.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="webtoondownloader.main.module.production.classpath">
+    <path refid="${module.jdk.classpath.webtoondownloader.main}"/>
+    <pathelement location="${basedir}/Could not find com.github.edvin:fxlauncher:1.0.21.
+Searched in the following locations:
+  - https:/repo.maven.apache.org/maven2/com/github/edvin/fxlauncher/1.0.21/fxlauncher-1.0.21.pom
+  - https:/repo.maven.apache.org/maven2/com/github/edvin/fxlauncher/1.0.21/fxlauncher-1.0.21.jar"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.50.classpath"/>
+    <path refid="library.gradle:_org.jetbrains:annotations:13.0.classpath"/>
+    <path refid="library.gradle:_com.github.edvin:fxlauncher:1.0.21.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib:1.3.50.classpath"/>
+    <path refid="library.gradle:_org.glassfish:javax.json:1.1.2.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50.classpath"/>
+    <path refid="library.gradle:_no.tornado:tornadofx:1.7.17.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-reflect:1.2.60.classpath"/>
+    <path refid="library.gradle:_javax.json:javax.json-api:1.1.2.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50.classpath"/>
+    <path refid="library.jsoup-1.12.1.classpath"/>
+  </path>
+  
+  <path id="webtoondownloader.main.runtime.production.module.classpath">
+    <pathelement location="${webtoondownloader.main.output.dir}"/>
+    <pathelement location="${basedir}/Could not find com.github.edvin:fxlauncher:1.0.21.
+Searched in the following locations:
+  - https:/repo.maven.apache.org/maven2/com/github/edvin/fxlauncher/1.0.21/fxlauncher-1.0.21.pom
+  - https:/repo.maven.apache.org/maven2/com/github/edvin/fxlauncher/1.0.21/fxlauncher-1.0.21.jar"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.50.classpath"/>
+    <path refid="library.gradle:_org.jetbrains:annotations:13.0.classpath"/>
+    <path refid="library.gradle:_com.github.edvin:fxlauncher:1.0.21.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib:1.3.50.classpath"/>
+    <path refid="library.gradle:_org.glassfish:javax.json:1.1.2.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50.classpath"/>
+    <path refid="library.gradle:_no.tornado:tornadofx:1.7.17.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-reflect:1.2.60.classpath"/>
+    <path refid="library.gradle:_javax.json:javax.json-api:1.1.2.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50.classpath"/>
+    <path refid="library.jsoup-1.12.1.classpath"/>
+  </path>
+  
+  <path id="webtoondownloader.main.module.classpath">
+    <path refid="${module.jdk.classpath.webtoondownloader.main}"/>
+    <pathelement location="${webtoondownloader.main.output.dir}"/>
+    <pathelement location="${basedir}/Could not find com.github.edvin:fxlauncher:1.0.21.
+Searched in the following locations:
+  - https:/repo.maven.apache.org/maven2/com/github/edvin/fxlauncher/1.0.21/fxlauncher-1.0.21.pom
+  - https:/repo.maven.apache.org/maven2/com/github/edvin/fxlauncher/1.0.21/fxlauncher-1.0.21.jar"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.50.classpath"/>
+    <path refid="library.gradle:_org.jetbrains:annotations:13.0.classpath"/>
+    <path refid="library.gradle:_com.github.edvin:fxlauncher:1.0.21.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib:1.3.50.classpath"/>
+    <path refid="library.gradle:_org.glassfish:javax.json:1.1.2.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50.classpath"/>
+    <path refid="library.gradle:_no.tornado:tornadofx:1.7.17.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-reflect:1.2.60.classpath"/>
+    <path refid="library.gradle:_javax.json:javax.json-api:1.1.2.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50.classpath"/>
+    <path refid="library.jsoup-1.12.1.classpath"/>
+  </path>
+  
+  <path id="webtoondownloader.main.runtime.module.classpath">
+    <pathelement location="${webtoondownloader.main.output.dir}"/>
+    <pathelement location="${basedir}/Could not find com.github.edvin:fxlauncher:1.0.21.
+Searched in the following locations:
+  - https:/repo.maven.apache.org/maven2/com/github/edvin/fxlauncher/1.0.21/fxlauncher-1.0.21.pom
+  - https:/repo.maven.apache.org/maven2/com/github/edvin/fxlauncher/1.0.21/fxlauncher-1.0.21.jar"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.50.classpath"/>
+    <path refid="library.gradle:_org.jetbrains:annotations:13.0.classpath"/>
+    <path refid="library.gradle:_com.github.edvin:fxlauncher:1.0.21.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib:1.3.50.classpath"/>
+    <path refid="library.gradle:_org.glassfish:javax.json:1.1.2.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50.classpath"/>
+    <path refid="library.gradle:_no.tornado:tornadofx:1.7.17.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-reflect:1.2.60.classpath"/>
+    <path refid="library.gradle:_javax.json:javax.json-api:1.1.2.classpath"/>
+    <path refid="library.gradle:_org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50.classpath"/>
+    <path refid="library.jsoup-1.12.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.webtoondownloader.main">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.webtoondownloader.main">
+    <patternset refid="excluded.from.module.webtoondownloader.main"/>
+  </patternset>
+  
+  <path id="webtoondownloader.main.module.sourcepath">
+    <dirset dir="${module.webtoondownloader.main.basedir}/../../src/main">
+      <include name="java"/>
+      <include name="kotlin"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.webtoondownloader.main" depends="compile.module.webtoondownloader.main.production,compile.module.webtoondownloader.main.tests" description="Compile module webtoondownloader.main"/>
+  
+  <target name="compile.module.webtoondownloader.main.production" depends="register.custom.compilers" description="Compile module webtoondownloader.main; production classes">
+    <mkdir dir="${webtoondownloader.main.output.dir}"/>
+    <javac2 destdir="${webtoondownloader.main.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.webtoondownloader.main}/javac">
+      <compilerarg line="${compiler.args.webtoondownloader.main}"/>
+      <bootclasspath refid="webtoondownloader.main.module.bootclasspath"/>
+      <classpath refid="webtoondownloader.main.module.production.classpath"/>
+      <src refid="webtoondownloader.main.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.webtoondownloader.main"/>
+    </javac2>
+    
+    <copy todir="${webtoondownloader.main.output.dir}">
+      <fileset dir="${module.webtoondownloader.main.basedir}/../../src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.webtoondownloader.main.basedir}/../../src/main/kotlin">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.webtoondownloader.main.basedir}/../../src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.webtoondownloader.main.tests" depends="register.custom.compilers,compile.module.webtoondownloader.main.production" description="compile module webtoondownloader.main; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.webtoondownloader.main" description="cleanup module">
+    <delete dir="${webtoondownloader.main.output.dir}"/>
+    <delete dir="${webtoondownloader.main.testoutput.dir}"/>
+  </target>
+</project>
