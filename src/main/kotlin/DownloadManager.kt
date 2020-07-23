@@ -27,6 +27,7 @@ class DownloadManager( private var titleId: Int, private var startNumber: Int, p
         }
          MainView.noticeMessage("downloadSuccess")
     }
+
     private fun getImageSource(url: String, dir: String): Boolean {
 
         try {
@@ -48,7 +49,6 @@ class DownloadManager( private var titleId: Int, private var startNumber: Int, p
         }
         return false
     }
-
 
     private fun downloadImage(url: String, dir: String, src: String, page: Int) {
 
